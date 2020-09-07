@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+{% block title %}
+    Nouvelle Demande
+{% endblock %}
+
+{% block content %}
+    <br><br><br><br>
+    {% for message in get_flashed_messages() %} 
+        <div class="alert alert-info">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{ message }}
+        </div>
+    {% endfor %}
+    <div class="row">
+        <div class="col-md-12">
+
+            <form method="post" enctype="multipart/form-data">
+                {{ form.hidden_tag() }}
+                <div class="row">
+                    {% if not current_user.is_authenticated %}
+                    <div class="col-md-6">
+                        <h5 class="text-center">Proprietaire</h5>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="login">{{ form.cin.label }}</label>
+                                            {{ form.cin(class_="form-control") }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="login">{{ form.nom.label }}</label>
+                                            {{ form.nom(class_="form-control") }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="login">{{ form.prenom.label }}</label>
+                                            {{ form.prenom(class_="form-control") }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="login">{{ form.email.label }}</label>
+                                            {{ form.email(class_="form-control") }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="login">{{ form.password.label }}</label>
+                                            {{ form.password(class_="form-control") }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12"> 
+                                        <div class="form-group">
+                                            <label for="profil">{{ form.profil.label }}</label>
+                                            <select class="form-control" name="profil">
+                                                <option>--Choisir--</option>
+                                                {% for option in form.profil %}
+                                                    {{ option }}
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    {% endif %}
+                    <div class="col-md-6">
+                        <h5 class="text-center">Details de la Demande</h5>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-10">
+                                <div class="form-group">
+                                    <label for="login">{{ form.terrain.label }}</label>
+                                    {{ form.terrain(class_="form-control") }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-10">
+                                <div class="form-group">
+                                    <label for="login">{{ form.acte.label }}</label>
+                                    {{ form.acte(class_="form-control") }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-10">
+                                <div class="form-group">
+                                    <label for="login">{{ form.plan.label }}</label>
+                                    {{ form.plan(class_="form-control") }}
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-8"></div>
+                            <div class="col-md-4">
+                                {{ form.submit(class_="btn btn-primary btn-block") }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+            </form>
+            <br>
+            
+        </div>
+    </div>
+{%endblock%}

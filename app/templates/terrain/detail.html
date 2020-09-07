@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card">
+    <div class="row no-gutters">
+      <div class="col-md-5">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRDPJLAng1yCodw4faQ8c-mn0TpVqEgOuOzgA&usqp=CAU" class="card-img" alt="">
+      </div>
+      <div class="col-md-6">
+        <div class="card-body">
+          <h5 class="card-title">Terrain {{ terrain.numero }}</h5>
+          <p class="card-text">
+            Dimension : {{terrain.longueur}} x {{terrain.largeur}}<br>
+
+          </p>
+          <p class="card-text"><small class="text-muted"></small></p>
+        </div>
+      </div>
+    </div>
+  </div>                            
+{% endblock %}
